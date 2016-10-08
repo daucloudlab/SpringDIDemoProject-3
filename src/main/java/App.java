@@ -6,7 +6,9 @@ public class App
 {
     public static void main( String[] args )
     {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-beans.xml") ;
+        ApplicationContext ctx =
+                new ClassPathXmlApplicationContext("spring-beans.xml") ;
+
         OutputHelper out = (OutputHelper) ctx.getBean("outputHelper") ;
         out.generateOutput();
     }

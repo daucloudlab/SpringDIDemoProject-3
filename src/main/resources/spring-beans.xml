@@ -3,10 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-       <bean id = "outputHelper" class="kz.kaznitu.lessons.test.helper.OutputHelper">
-              <property name="outputGenerator" ref="csvOutput" />
+       <bean id = "outputHelper"
+             class="kz.kaznitu.lessons.test.helper.OutputHelper"
+             init-method="start" destroy-method="end">
+              <property name="outputGenerator" ref="jsonOutput" />
        </bean>
 
-       <bean id = "csvOutput" class="kz.kaznitu.lessons.test.classes.CsvOutputGenerator" />
-       <bean id = "jsonOutput" class="kz.kaznitu.lessons.test.classes.JsonOutputGenerator" />
+       <bean id = "csvOutput"
+             class="kz.kaznitu.lessons.test.classes.CsvOutputGenerator" />
+
+       <bean id = "jsonOutput"
+             class="kz.kaznitu.lessons.test.classes.JsonOutputGenerator" />
 </beans>
